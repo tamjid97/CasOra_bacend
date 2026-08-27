@@ -1,0 +1,32 @@
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  COD
+  STRIPE
+}
+
+enum MaterialType {
+  SILICONE
+  MAGSAFE
+  LEATHER
+  CLEAR
+  HARD_PLASTIC
+}

@@ -1,0 +1,19 @@
+model Product {
+  id            String       @id @default(uuid())
+  name          String
+  description   String
+  price         Float
+  stock         Int          @default(0)
+  images        String[]
+  
+  material      MaterialType
+  
+  categoryId    String
+  category      Category     @relation(fields: [categoryId], references: [id])
+  
+  orderItems    OrderItem[]
+  reviews       Review[]
+
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
