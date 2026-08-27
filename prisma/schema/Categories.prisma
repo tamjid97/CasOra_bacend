@@ -1,0 +1,10 @@
+model Category {
+  id          String    @id @default(uuid())
+  name        String    @unique // e.g., "iPhone 13", "iPhone 14 Pro Max"
+  description String?
+  
+  products    Product[]
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}

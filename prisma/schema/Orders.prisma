@@ -1,0 +1,34 @@
+model Order {
+  id            String        @id @default(uuid())
+  
+  userId        String
+  user          User          @relation(fields: [userId], references: [id])
+  
+  status        OrderStatus   @default(PENDING)
+  totalAmount   Float
+  
+  items         OrderItem[]
+  payment       Payment?
+
+  shippingAddress String
+  contactPhone    String
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model OrderItem {
+  id            String    @id @default(uuid())
+  
+  orderId       String
+  order         Order     @relation(fields: [orderId], references: [id])
+  
+  productId     String
+  product       Product   @relation(fields: [productId], references: [id])
+  
+  quantity      Int
+  price         Float     // Price at the time of order
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
